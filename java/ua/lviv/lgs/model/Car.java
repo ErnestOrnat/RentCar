@@ -16,6 +16,8 @@ public class Car {
 	@Column
 	private String model;
 	@Column
+	private String classCar;
+	@Column
 	private int year;
 	@Column
 	private String color;
@@ -26,22 +28,27 @@ public class Car {
 	@Column
 	private int price;
 	@Column
-	private int condition; // 1-вільна 0 - зайнта -1 - ремонт
+	private int status; // 1-вільна 0 - зайнята -1 - ремонт
+	
+	private Reservation res;
 
 	public Car() {
 
 	}
 
-	public Car(String brand, String model, int year, String color,
-			double engineVolume, String trasmision, int price, int condition) {
+	public Car(int id, String brand, String model, String classCar, int year,
+			String color, double engineVolume, String trasmision, int price,
+			int status, Reservation res) {
 		this.brand = brand;
 		this.model = model;
+		this.classCar = classCar;
 		this.year = year;
 		this.color = color;
 		this.engineVolume = engineVolume;
 		this.trasmision = trasmision;
 		this.price = price;
-		this.condition = condition;
+		this.status = status;
+		this.res = res;
 	}
 
 	public int getId() {
@@ -66,6 +73,14 @@ public class Car {
 
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public String getClassCar() {
+		return classCar;
+	}
+
+	public void setClassCar(String classCar) {
+		this.classCar = classCar;
 	}
 
 	public int getYear() {
@@ -108,20 +123,29 @@ public class Car {
 		this.price = price;
 	}
 
-	public int getCondition() {
-		return condition;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setCondition(int condition) {
-		this.condition = condition;
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public Reservation getRes() {
+		return res;
+	}
+
+	public void setRes(Reservation res) {
+		this.res = res;
 	}
 
 	@Override
 	public String toString() {
 		return "Car [id=" + id + ", brand=" + brand + ", model=" + model
-				+ ", year=" + year + ", color=" + color + ", engineVolume="
-				+ engineVolume + ", trasmision=" + trasmision + ", price="
-				+ price + ", condition=" + condition + "]";
+				+ ", classCar=" + classCar + ", year=" + year + ", color="
+				+ color + ", engineVolume=" + engineVolume + ", trasmision="
+				+ trasmision + ", price=" + price + ", status=" + status
+				+ ", res=" + res + "]";
 	}
 
 }
