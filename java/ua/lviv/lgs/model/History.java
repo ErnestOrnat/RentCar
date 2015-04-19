@@ -14,18 +14,17 @@ public class History {
 	private Car car;
 	@Column
 	private User user;
-	@Column
-	private Reservation reserv;
+
 
 	public History() {
 
 	}
 
-	public History(Car car, User user, Reservation reserv) {
+	public History(Car car, User user) {
 		
 		this.car = car;
 		this.user = user;
-		this.reserv = reserv;
+		
 	}
 
 	public int getId() {
@@ -52,18 +51,12 @@ public class History {
 		this.user = user;
 	}
 
-	public Reservation getReserv() {
-		return reserv;
-	}
 
-	public void setReserv(Reservation reserv) {
-		this.reserv = reserv;
-	}
 
 	@Override
 	public String toString() {
 		return "History [id=" + id + ", car=" + car + ", user=" + user
-				+ ", reserv=" + reserv + "]";
+				+ "]";
 	}
 	
 

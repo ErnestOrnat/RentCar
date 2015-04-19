@@ -1,5 +1,7 @@
 package ua.lviv.lgs.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,17 +30,21 @@ public class Car {
 	@Column
 	private int price;
 	@Column
+	private Date startDate;
+	@Column
+	private Date endDate;
+	@Column
 	private int status; // 1-вільна 0 - зайнята -1 - ремонт
 	
-	private Reservation res;
-
+	
 	public Car() {
 
 	}
 
-	public Car(int id, String brand, String model, String classCar, int year,
+
+	public Car(String brand, String model, String classCar, int year,
 			String color, double engineVolume, String trasmision, int price,
-			int status, Reservation res) {
+			Date startDate, Date endDate, int status) {
 		this.brand = brand;
 		this.model = model;
 		this.classCar = classCar;
@@ -47,105 +53,142 @@ public class Car {
 		this.engineVolume = engineVolume;
 		this.trasmision = trasmision;
 		this.price = price;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.status = status;
-		this.res = res;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public String getBrand() {
 		return brand;
 	}
 
+
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
+
 
 	public String getModel() {
 		return model;
 	}
 
+
 	public void setModel(String model) {
 		this.model = model;
 	}
+
 
 	public String getClassCar() {
 		return classCar;
 	}
 
+
 	public void setClassCar(String classCar) {
 		this.classCar = classCar;
 	}
+
 
 	public int getYear() {
 		return year;
 	}
 
+
 	public void setYear(int year) {
 		this.year = year;
 	}
+
 
 	public String getColor() {
 		return color;
 	}
 
+
 	public void setColor(String color) {
 		this.color = color;
 	}
+
 
 	public double getEngineVolume() {
 		return engineVolume;
 	}
 
+
 	public void setEngineVolume(double engineVolume) {
 		this.engineVolume = engineVolume;
 	}
+
 
 	public String getTrasmision() {
 		return trasmision;
 	}
 
+
 	public void setTrasmision(String trasmision) {
 		this.trasmision = trasmision;
 	}
+
 
 	public int getPrice() {
 		return price;
 	}
 
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
 
 	public int getStatus() {
 		return status;
 	}
 
+
 	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	public Reservation getRes() {
-		return res;
-	}
-
-	public void setRes(Reservation res) {
-		this.res = res;
-	}
 
 	@Override
 	public String toString() {
 		return "Car [id=" + id + ", brand=" + brand + ", model=" + model
 				+ ", classCar=" + classCar + ", year=" + year + ", color="
 				+ color + ", engineVolume=" + engineVolume + ", trasmision="
-				+ trasmision + ", price=" + price + ", status=" + status
-				+ ", res=" + res + "]";
+				+ trasmision + ", price=" + price + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", status=" + status + "]";
 	}
+	
+
+
 
 }
